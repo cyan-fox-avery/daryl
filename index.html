@@ -21,7 +21,7 @@
   main { max-width: 760px; margin: 0 auto; padding: 0 14px 48px; }
 
   /* ---- Opening cover ---- */
-  .cover { position: relative; padding: 56px 4px 84px; }
+  .cover { position: relative; padding: 74px 4px 92px; }
   .deco { position: absolute; z-index: 0; pointer-events: none; }
 
   /* Vinyl record, tucked top-left behind the title card */
@@ -41,9 +41,11 @@
   .title-card {
     position: relative; z-index: 2;
     background: #fff8e7;
-    border: 1px solid #e3d3b3;
-    box-shadow: 0 6px 0 rgba(43,33,24,.12);
-    padding: 118px 22px 30px;
+    background-image: repeating-linear-gradient(0deg, rgba(120,83,52,.018) 0px, rgba(120,83,52,.018) 1px, transparent 1px, transparent 5px);
+    border: 1px solid #dfcba8;
+    border-radius: 3px;
+    box-shadow: 2px 4px 0 #ead9b9, 4px 10px 16px rgba(43,33,24,.15);
+    padding: 86px 22px 42px;
     transform: rotate(-.5deg);
   }
   .title-card::before { /* tape */
@@ -66,22 +68,25 @@
   h1 .numbers { color: #6b2d4a; font-size: clamp(52px, 15vw, 84px); transform: rotate(.6deg); }
   .tagline {
     margin: 0; font-family: "Caveat", "Segoe Print", "Bradley Hand", cursive;
-    font-size: 26px; line-height: 1.25; color: #5a4636;
+    font-size: clamp(23px, 6vw, 29px); line-height: 1.35; color: #5a4636;
   }
 
   /* Callie — real photo, separate layer, peeking from the right edge.
      White background blends into the paper via multiply; she never covers text,
      because the title card reserves space for her (padding-top on mobile,
      padding-right on wider screens). No speech bubble. */
-  .callie { position: absolute; z-index: 3; margin: 0; top: 34px; right: -2px; width: 138px; transform: rotate(2deg); }
+  .callie { position: absolute; z-index: 3; margin: 0; top: 18px; right: -12px; width: 146px; transform: rotate(2deg); }
   .callie img {
     display: block; width: 100%; height: auto;
     mix-blend-mode: multiply;
+    /* Crop the photo edges into an organic silhouette, without altering Callie. */
+    clip-path: polygon(12% 8%, 32% 2%, 61% 4%, 85% 12%, 98% 27%, 100% 66%, 88% 90%, 69% 100%, 10% 100%, 0 80%, 3% 35%);
+    filter: drop-shadow(-3px 5px 3px rgba(43,33,24,.12));
   }
 
   /* Montréal postcard, bottom-left */
   .postcard {
-    left: 2px; bottom: 34px; width: 152px; transform: rotate(-4deg);
+    left: 0px; bottom: 32px; width: 138px; transform: rotate(-4deg);
     background: #fffdf6; border: 1px solid #e3d3b3; box-shadow: 0 3px 0 rgba(43,33,24,.14);
     padding: 8px 8px 6px; z-index: 2;
   }
@@ -98,11 +103,11 @@
   /* Flowers — three blossoms only */
   .flower { z-index: 2; }
   .flower svg { display: block; width: 100%; height: auto; }
-  .flower-a { top: 96px; left: 2px; width: 64px; transform: rotate(-14deg); }
-  .flower-b { bottom: 22px; right: 14px; width: 56px; transform: rotate(18deg); }
+  .flower-a { top: 112px; left: -4px; width: 52px; transform: rotate(-14deg); }
+  .flower-b { bottom: 24px; right: 12px; width: 43px; transform: rotate(18deg); }
 
   /* Surfboard tip, bottom-right, small */
-  .surfboard { bottom: 30px; right: 72px; width: 34px; transform: rotate(24deg); z-index: 1; }
+  .surfboard { bottom: 32px; right: 65px; width: 29px; transform: rotate(24deg); z-index: 1; }
   .surfboard svg { display: block; width: 100%; height: auto; }
 
   /* Wave strip at the base of the cover */
@@ -130,8 +135,8 @@
     .cover { padding: 64px 10px 96px; }
     .vinyl { width: 168px; height: 168px; top: 0; left: -8px; }
     .sunset { width: 168px; top: 0; right: 22px; }
-    .title-card { padding: 46px 210px 36px 36px; }
-    .callie { top: 50%; right: -6px; width: 236px; transform: translateY(-46%) rotate(3deg); }
+    .title-card { padding: 54px 205px 50px 36px; }
+    .callie { top: 50%; right: -12px; width: 230px; transform: translateY(-46%) rotate(3deg); }
     .flower-a { top: 148px; left: 6px; width: 76px; }
     .postcard { width: 172px; bottom: 40px; }
     .flower-b { bottom: 26px; right: 22px; width: 64px; }
@@ -144,7 +149,7 @@
 </style>
 </head>
 <body>
-<div class="banner"><strong>OPENING PROTOTYPE — v0.2</strong><br>Opening section only, for Avery and Mira to review. Callie's photo is real. Not for publication, and not for Daryl yet.</div>
+<div class="banner"><strong>OPENING PROTOTYPE — v0.3</strong><br>Opening section only, for Avery and Mira to review. Callie's photo is real. Not for publication, and not for Daryl yet.</div>
 <main>
   <section class="cover" aria-labelledby="page-title">
 
@@ -232,7 +237,7 @@
     <p>Opening review only — the lifetime statistics, birthday almanac, and historical timeline are not redesigned in this pass.</p>
   </section>
 
-  <footer>Opening prototype v0.2 — for Avery and Mira to review. Not merged, not published as the final site.</footer>
+  <footer>Opening prototype v0.3 — for Avery and Mira to review. Not merged, not published as the final site.</footer>
 </main>
 </body>
 </html>
