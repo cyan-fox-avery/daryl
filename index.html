@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Daryl, by the Numbers — opening prototype v0.2</title>
+<title>Daryl, by the Numbers — scrapbook preview</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
@@ -20,111 +20,17 @@
   .banner strong { color: #f2c14e; }
   main { max-width: 760px; margin: 0 auto; padding: 0 14px 48px; }
 
-  /* ---- Opening cover ---- */
-  .cover { position: relative; padding: 74px 4px 92px; }
-  .deco { position: absolute; z-index: 0; pointer-events: none; }
-
-  /* Vinyl record, tucked top-left behind the title card */
-  .vinyl { top: 6px; left: -18px; width: 132px; height: 132px; transform: rotate(-12deg); }
-  .vinyl svg { display: block; width: 100%; height: auto; }
-
-  /* California sunset, tucked top-right behind the title card */
-  .sunset {
-    top: 2px; right: 4px; width: 138px; transform: rotate(4deg);
-    background: linear-gradient(180deg, #e07a5f 0%, #e9b44c 55%, #2a7f76 100%);
-    border: 8px solid #fffdf6; box-shadow: 0 3px 0 rgba(43,33,24,.18);
-    border-radius: 4px; overflow: hidden;
+  /* ---- Approved illustrated scrapbook cover ---- */
+  .cover { margin: 0 auto; padding: 16px 0 0; max-width: 760px; }
+  .cover-art {
+    display: block; width: 100%; height: auto; border-radius: 3px;
+    box-shadow: 0 8px 24px rgba(43,33,24,.17);
   }
-  .sunset svg { display: block; width: 100%; height: auto; }
-
-  /* Title card — the dominant element */
-  .title-card {
-    position: relative; z-index: 2;
-    background: #fff8e7;
-    background-image: repeating-linear-gradient(0deg, rgba(120,83,52,.018) 0px, rgba(120,83,52,.018) 1px, transparent 1px, transparent 5px);
-    border: 1px solid #dfcba8;
-    border-radius: 3px;
-    box-shadow: 2px 4px 0 #ead9b9, 4px 10px 16px rgba(43,33,24,.15);
-    padding: 86px 22px 42px;
-    transform: rotate(-.5deg);
-  }
-  .title-card::before { /* tape */
-    content: ""; position: absolute; top: -13px; left: 50%; width: 104px; height: 28px;
-    margin-left: -52px; background: rgba(242,193,78,.68); border: 1px solid rgba(122,59,46,.25);
-    transform: rotate(-3deg);
-  }
-  .est {
-    margin: 0 0 10px; font-family: "Courier New", Courier, monospace;
-    font-size: 15px; font-weight: bold; letter-spacing: .18em; text-transform: uppercase; color: #6b2d4a;
-  }
-  h1 {
-    font-family: "Shrikhand", "Arial Rounded MT Bold", "Trebuchet MS", Georgia, serif;
-    font-weight: 400; line-height: .98; margin: 0 0 14px;
-    text-shadow: 2px 2px 0 rgba(43,33,24,.08);
-  }
-  h1 .line { display: block; }
-  h1 .daryl { color: #c65a2e; font-size: clamp(56px, 16vw, 88px); transform: rotate(-1.5deg); }
-  h1 .bythe { color: #2a7f76; font-size: clamp(34px, 9vw, 52px); margin: 2px 0 2px 18px; transform: rotate(-1deg); }
-  h1 .numbers { color: #6b2d4a; font-size: clamp(52px, 15vw, 84px); transform: rotate(.6deg); }
-  .tagline {
-    margin: 0; font-family: "Caveat", "Segoe Print", "Bradley Hand", cursive;
-    font-size: clamp(23px, 6vw, 29px); line-height: 1.35; color: #5a4636;
-  }
-
-  /* Callie — real photo, separate layer, peeking from the right edge.
-     White background blends into the paper via multiply; she never covers text,
-     because the title card reserves space for her (padding-top on mobile,
-     padding-right on wider screens). No speech bubble. */
-  .callie { position: absolute; z-index: 3; margin: 0; top: 18px; right: -12px; width: 146px; transform: rotate(2deg); }
-  .callie img {
-    display: block; width: 100%; height: auto;
-    mix-blend-mode: multiply;
-    /* Crop the photo edges into an organic silhouette, without altering Callie. */
-    clip-path: polygon(12% 8%, 32% 2%, 61% 4%, 85% 12%, 98% 27%, 100% 66%, 88% 90%, 69% 100%, 10% 100%, 0 80%, 3% 35%);
-    filter: drop-shadow(-3px 5px 3px rgba(43,33,24,.12));
-  }
-
-  /* Montréal postcard, bottom-left */
-  .postcard {
-    left: 0px; bottom: 32px; width: 138px; transform: rotate(-4deg);
-    background: #fffdf6; border: 1px solid #e3d3b3; box-shadow: 0 3px 0 rgba(43,33,24,.14);
-    padding: 8px 8px 6px; z-index: 2;
-  }
-  .postcard svg { display: block; width: 100%; height: auto; }
-  .postcard .pc-label {
-    font-family: "Caveat", "Segoe Print", cursive; font-size: 22px; color: #2a7f76;
-    text-align: center; margin: 2px 0 0; line-height: 1;
-  }
-  .postcard .pc-stamp {
-    position: absolute; top: 6px; right: 6px; width: 26px; height: 30px;
-    background: #e0788a; color: #fff8e7; font-size: 18px; line-height: 30px; text-align: center;
-  }
-
-  /* Flowers — three blossoms only */
-  .flower { z-index: 2; }
-  .flower svg { display: block; width: 100%; height: auto; }
-  .flower-a { top: 112px; left: -4px; width: 52px; transform: rotate(-14deg); }
-  .flower-b { bottom: 24px; right: 12px; width: 43px; transform: rotate(18deg); }
-
-  /* Surfboard tip, bottom-right, small */
-  .surfboard { bottom: 32px; right: 65px; width: 29px; transform: rotate(24deg); z-index: 1; }
-  .surfboard svg { display: block; width: 100%; height: auto; }
-
-  /* Wave strip at the base of the cover */
-  .wave { position: absolute; left: 0; right: 0; bottom: 0; z-index: 0; pointer-events: none; }
-  .wave svg { display: block; width: 100%; height: 44px; }
-
-  /* ---- Transition strip ---- */
-  .transition {
-    position: relative; z-index: 2;
-    background: #fffdf6; border: 1px solid #e3d3b3; box-shadow: 0 4px 0 rgba(43,33,24,.12);
-    padding: 16px 20px; margin: 6px 10px 0; transform: rotate(-1deg); text-align: center;
-  }
-  .transition p {
-    margin: 0; font-family: "Caveat", "Segoe Print", cursive; font-size: 28px; line-height: 1.25; color: #6b2d4a;
-  }
-  .transition .arrow { display: block; font-size: 22px; color: #2a7f76; margin-top: 2px; }
-
+  .cover-art-fallback { display: none; padding: 24px; text-align: center; background: #fff8e7; }
+  .cover-art-fallback h1 { color: #6b2d4a; font-size: clamp(32px,8vw,60px); }
+  .cover-art-fallback p { font-family: Georgia,serif; }
+  .cover-art:not([src]) + .cover-art-fallback { display: block; }
+  .cover-credit { text-align: center; font-size: 12px; color: #665343; margin: 10px 0 0; }
   /* ---- Next-section stub (not redesigned in this pass) ---- */
   .next { padding: 36px 4px 8px; }
   .next h2 { font-size: 29px; line-height: 1.2; margin: 0 0 6px; }
@@ -149,95 +55,25 @@
 </style>
 </head>
 <body>
-<div class="banner"><strong>OPENING PROTOTYPE — v0.3</strong><br>Opening section only, for Avery and Mira to review. Callie's photo is real. Not for publication, and not for Daryl yet.</div>
+<div class="banner"><strong>SCRAPBOOK COVER PREVIEW</strong><br>Approved illustrated header, for review. Not the final published site.</div>
 <main>
-  <section class="cover" aria-labelledby="page-title">
-
-    <div class="deco vinyl" aria-hidden="true">
-      <svg viewBox="0 0 120 120" role="presentation">
-        <circle cx="60" cy="60" r="58" fill="#2b2118"/>
-        <circle cx="60" cy="60" r="46" fill="none" stroke="#4a3a2c" stroke-width="2"/>
-        <circle cx="60" cy="60" r="36" fill="none" stroke="#4a3a2c" stroke-width="2"/>
-        <circle cx="60" cy="60" r="26" fill="none" stroke="#4a3a2c" stroke-width="2"/>
-        <circle cx="60" cy="60" r="18" fill="#c65a2e"/>
-        <circle cx="60" cy="60" r="4" fill="#fff8e7"/>
-      </svg>
-    </div>
-
-    <div class="deco sunset" aria-hidden="true">
-      <svg viewBox="0 0 140 84" role="presentation">
-        <circle cx="70" cy="52" r="18" fill="#fff8e7" opacity=".9"/>
-        <rect x="0" y="58" width="140" height="26" fill="#2a7f76"/>
-        <path d="M18 84 L18 58 Q28 48 38 58 L38 84 Z" fill="#2b2118"/>
-        <path d="M96 84 L96 60 Q106 50 116 60 L116 84 Z" fill="#2b2118"/>
-        <path d="M30 62 Q50 56 70 62 T110 62" fill="none" stroke="#fff8e7" stroke-width="2" opacity=".7"/>
-      </svg>
-    </div>
-
-    <div class="title-card">
-      <p class="est">Est. January 15, 1960</p>
-      <h1 id="page-title">
-        <span class="line daryl">Daryl,</span>
-        <span class="line bythe">by the</span>
-        <span class="line numbers">Numbers</span>
-      </h1>
-      <p class="tagline">A life in numbers, stories, and little wonders.</p>
-    </div>
-
-    <figure class="callie">
-      <img src="assets/callie-opening.jpg" alt="Callie, Daryl's black dog, peeking around the edge of the title card — one expressive brown eye and her enormous nose in the foreground" width="800" height="693" fetchpriority="high">
-    </figure>
-
-    <div class="deco flower flower-a" aria-hidden="true">
-      <svg viewBox="0 0 64 64" role="presentation">
-        <g fill="#e0788a"><ellipse cx="32" cy="14" rx="9" ry="12"/><ellipse cx="32" cy="50" rx="9" ry="12"/><ellipse cx="14" cy="32" rx="12" ry="9"/><ellipse cx="50" cy="32" rx="12" ry="9"/></g>
-        <circle cx="32" cy="32" r="9" fill="#e9b44c"/>
-      </svg>
-    </div>
-
-    <div class="deco postcard" aria-hidden="true">
-      <span class="pc-stamp">⚜</span>
-      <svg viewBox="0 0 140 62" role="presentation">
-        <rect width="140" height="62" fill="#a8c8d8"/>
-        <path d="M10 62 L10 34 Q70 6 130 34 L130 62 Z" fill="#6b2d4a"/>
-        <circle cx="70" cy="26" r="10" fill="#fff8e7"/>
-        <rect x="66" y="26" width="8" height="18" fill="#fff8e7"/>
-      </svg>
-      <p class="pc-label">Montréal</p>
-    </div>
-
-    <div class="deco surfboard" aria-hidden="true">
-      <svg viewBox="0 0 34 90" role="presentation">
-        <path d="M17 2 Q32 24 30 52 Q28 86 17 88 Q6 86 4 52 Q2 24 17 2 Z" fill="#e9b44c" stroke="#c65a2e" stroke-width="2"/>
-        <path d="M17 18 L17 72" stroke="#c65a2e" stroke-width="2"/>
-      </svg>
-    </div>
-
-    <div class="deco flower flower-b" aria-hidden="true">
-      <svg viewBox="0 0 64 64" role="presentation">
-        <g fill="#e9b44c"><ellipse cx="32" cy="14" rx="9" ry="12"/><ellipse cx="32" cy="50" rx="9" ry="12"/><ellipse cx="14" cy="32" rx="12" ry="9"/><ellipse cx="50" cy="32" rx="12" ry="9"/></g>
-        <circle cx="32" cy="32" r="9" fill="#c65a2e"/>
-      </svg>
-    </div>
-
-    <div class="wave" aria-hidden="true">
-      <svg viewBox="0 0 760 44" preserveAspectRatio="none" role="presentation">
-        <path d="M0 22 Q60 6 120 22 T240 22 T360 22 T480 22 T600 22 T720 22 L760 22 L760 44 L0 44 Z" fill="#2a7f76" opacity=".85"/>
-        <path d="M0 32 Q60 18 120 32 T240 32 T360 32 T480 32 T600 32 T720 32 L760 32 L760 44 L0 44 Z" fill="#2a7f76" opacity=".55"/>
-      </svg>
+  <section class="cover" aria-label="Daryl, by the Numbers illustrated scrapbook cover">
+    <img class="cover-art"
+      src="assets/daryl-cover-callie.jpg"
+      alt="Daryl, by the Numbers. Est. January 15, 1960. A life in numbers, stories, and little wonders. A colourful vintage scrapbook collage with vinyl record, California sunset, Montréal postcard, flowers, a surfboard, and a real photograph of Callie peeking through a turquoise paper window. And just how much life fits into one lifetime?"
+      width="1169" height="1279" fetchpriority="high">
+    <div class="cover-art-fallback">
+      <h1>Daryl, by the Numbers</h1>
+      <p>A life in numbers, stories, and little wonders.</p>
     </div>
   </section>
-
-  <div class="transition">
-    <p>And just how much life fits into one lifetime?<span class="arrow" aria-hidden="true">↓</span></p>
-  </div>
 
   <section class="next" aria-labelledby="next-heading">
     <h2 id="next-heading">A Life by the Numbers</h2>
     <p>Opening review only — the lifetime statistics, birthday almanac, and historical timeline are not redesigned in this pass.</p>
   </section>
 
-  <footer>Opening prototype v0.3 — for Avery and Mira to review. Not merged, not published as the final site.</footer>
+  <footer>Illustrated scrapbook preview — awaiting final image asset. Not merged or published.</footer>
 </main>
 </body>
 </html>
