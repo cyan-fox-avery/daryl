@@ -30,7 +30,6 @@
   .cover-art-fallback h1 { color: #6b2d4a; font-size: clamp(32px,8vw,60px); }
   .cover-art-fallback p { font-family: Georgia,serif; }
   .cover-art:not([src]) + .cover-art-fallback { display: block; }
-  .cover-credit { text-align: center; font-size: 12px; color: #665343; margin: 10px 0 0; }
   /* ---- Next-section stub (not redesigned in this pass) ---- */
   .next { padding: 36px 4px 8px; }
   .next h2 { font-size: 29px; line-height: 1.2; margin: 0 0 6px; }
@@ -39,18 +38,6 @@
 
   @media (min-width: 640px) {
     .cover { padding: 64px 10px 96px; }
-    .vinyl { width: 168px; height: 168px; top: 0; left: -8px; }
-    .sunset { width: 168px; top: 0; right: 22px; }
-    .title-card { padding: 54px 205px 50px 36px; }
-    .callie { top: 50%; right: -12px; width: 230px; transform: translateY(-46%) rotate(3deg); }
-    .flower-a { top: 148px; left: 6px; width: 76px; }
-    .postcard { width: 172px; bottom: 40px; }
-    .flower-b { bottom: 26px; right: 22px; width: 64px; }
-    .surfboard { right: 92px; bottom: 36px; width: 40px; }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .title-card, .transition, .callie, .vinyl, .sunset, .postcard { transform: none !important; }
   }
 </style>
 </head>
@@ -61,7 +48,7 @@
     <img class="cover-art"
       src="assets/daryl-cover-callie.jpg"
       alt="Daryl, by the Numbers. Est. January 15, 1960. A life in numbers, stories, and little wonders. A colourful vintage scrapbook collage with vinyl record, California sunset, Montréal postcard, flowers, a surfboard, and a real photograph of Callie peeking through a turquoise paper window. And just how much life fits into one lifetime?"
-      width="1169" height="1279" fetchpriority="high">
+      width="1125" height="1231" fetchpriority="high">
     <div class="cover-art-fallback">
       <h1>Daryl, by the Numbers</h1>
       <p>A life in numbers, stories, and little wonders.</p>
