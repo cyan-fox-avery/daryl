@@ -1,6 +1,20 @@
+# Approved illustrated cover — Daryl by the Numbers
+
+Status: opening cover approved by Avery + Mira, 2026-11-09. For review in draft PR #3. Not merged, not the final site, not for Daryl yet.
+
+## What changed (2026-11-09, Mira commits 88edce4 + bf8ee16, Roman asset + cleanup)
+- Mira replaced the HTML-built opening with the approved illustrated scrapbook cover as a single responsive image: retro typography, vinyl record, California sunset, Montréal postcard, flowers, surfboard, and Callie's real photograph peeking through a scrapbook window. The cover already includes all its lettering and Callie's photo — neither is reconstructed in HTML.
+- Roman added the finished JPEG as supplied, byte-for-byte, at `assets/daryl-cover-callie.jpg` — 1125×1231, 755,300 bytes, sha256 `a7562ef3692741e20a8a6054324ce31cb00b7fe1a840a11777e2a7dd59ae92f1`. No resize, recompression, crop, or overlay. Source: Avery's upload `055FAE5F-...-photo-13D9A078-....jpg`.
+- Header CSS is proportional only: `.cover-art { display: block; width: 100%; height: auto; }` — no stretching, no cropping, no `object-fit`, no overlays. The `width`/`height` attributes were corrected from Mira's 1169×1279 to the supplied file's exact 1125×1231 (same aspect ratio, ~0.01% difference).
+- Obsolete header elements removed: the HTML-built title card, vinyl, sunset, postcard, flowers, surfboard, and separate Callie layer were already removed by Mira; Roman removed the leftover dead CSS for those classes (`.vinyl`, `.sunset`, `.title-card`, `.callie`, `.flower-a/b`, `.postcard`, `.surfboard`, `.transition`, `.cover-credit`) and the reduced-motion block that only referenced them. The rest of the page is intact: the "A Life by the Numbers" stub, footer, and the earlier `assets/callie-opening.jpg` file (still in the repo, unused by the current header — kept for now, not deleted).
+- Pages build for the asset commit was verified built, and the live preview was checked serving the cover image (200, full 755,300 bytes).
+
+## What is deliberately NOT in it
+- No lifetime statistics, birthday almanac, or historical timeline redesign — the "A Life by the Numbers" heading is a stub only. Interior scrapbook sections are next, per Avery + Mira.
+
 # Opening prototype v0.2 — Daryl by the Numbers
 
-Status: opening section only, for Avery + Mira review. Not merged, not the final site, not for Daryl yet.
+Status: opening section only, for Avery + Mira review. Not merged, not the final site, not for Daryl yet. Superseded as the header by the approved illustrated cover above; kept here as history.
 
 ## What is in it (v0.2, 2026-11-09)
 - Opening scrapbook cover only, per Mira + Avery's 2026-11-09 opening brief — deliberately less crowded than the mockup (about 30–40% less busy): lots of cream negative space around one dominant title card.
